@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %} Connexion {% endblock %}
+
+{% block body %}
+
+    {% if session.id %} <!--Vérification de la connexion-->
+
+        <h1>Vous êtes connecté !</h1>
+        <form action="/deconnexion">
+            <button type="submit" class="btn btn-primary">Deconnexion</button>
+
+        </form>
+    {% else %}
+
+
+      <h1>Connexion</h1>
+        <form action="/connexion" method="POST"> <!--Form pour entrer les informations de l'utilisateur-->
+            <div>
+                <label for="nom">Nom : </label>
+                <input autocomplete="off" autofocus type="text" id="nom" name="nom">
+            </div>
+            <p></p>
+            <div>
+                <label for="prenom">Prénom : </label>
+                <input autocomplete="off" autofocus type="text" id="prenom" name="prenom">
+            </div>
+            <p></p>
+            <div>
+                <label for="mail">Adresse mail : </label>
+                <input autocomplete="off" autofocus type="text" id="mail" name="mail">
+            </div>
+            <p></p>
+            <div>
+                <label for="mdp">Mot de passe : </label>
+                <input autocomplete="off" autofocus type="password" id="mdp" name="mdp">
+            </div>
+            <p></p>
+            <!--Envoi du form, l'utilisateur se connecte s'il est dans la base de données-->
+            <button type="submit" class="btn btn-primary">Connexion</button>
+        </form>
+    {% endif %}
+{% endblock %}

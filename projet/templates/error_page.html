@@ -1,0 +1,7 @@
+{% extends "layout.html" %}
+<!-- Affiche l'erreur rencontrée par l'utilisateur -->
+{% block title %} Erreur {{error_number}} {% endblock %}
+
+{% block body %}
+    <p id="ERROR">Erreur {{error_number}} : {{ error_message }}</p>
+{% endblock %}

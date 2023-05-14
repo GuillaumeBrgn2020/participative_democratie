@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block title %} Proposition de projet {% endblock %}
+
+{% block body %} 
+    <h1>Bienvenue sur la proposition de projet !</h1>
+
+    <form action="/verification" method="POST">
+      <p>Votre proposition de projet :</p> <!-- formulaire pour proposer un projet -->
+      <input autocomplete="off" autofocus placeholder="Nom du projet" name="titre" type="text", value="{{ titre }}"><br /><br>
+      <p>En quoi consiste votre projet</p>
+      <input class="descri" autocomplete="off" autofocus placeholder="Description" name="desc" type="text", value="{{ description }}">   <br /> 
+      <br>
+      <input autocomplete="off" autofocus placeholder="Tag" type="hidden">
+      tag 1 :<select name="Tag 1">
+        <option value="Aucun">Aucun</option> <!-- séléction des différents tags du projet -->
+        {% for Tag in TAGS %}
+        <option value="{{ Tag[0] }}">{{ Tag[0] }}</option>
+        {% endfor %}
+      </select>
+       tag 2 :<select name="Tag 2">
+        <option value="Aucun">Aucun</option>
+        {% for Tag in TAGS %}
+        <option value="{{ Tag[0] }}">{{ Tag[0] }}</option>
+        {% endfor %}
+      </select>
+       tag 3 :<select name="Tag 3">
+        <option value="Aucun">Aucun</option>
+        {% for Tag in TAGS %}
+        <option value="{{ Tag[0] }}">{{ Tag[0] }}</option>
+        {% endfor %}
+      </select>
+      tag 4 :<select name="Tag 4">
+        <option value="Aucun">Aucun</option>
+        {% for Tag in TAGS %}
+        <option value="{{ Tag[0] }}">{{ Tag[0] }}</option>
+        {% endfor %}
+      </select>
+      tag 5 :<select name="Tag 5">
+        <option value="Aucun">Aucun</option>
+        {% for Tag in TAGS %}
+        <option value="{{ Tag[0] }}">{{ Tag[0] }}</option>
+        {% endfor %}
+      </select>
+      <br/><br>
+      <input type="submit" value="Valider">
+      </form>
+
+
+    <p id="demo"></p>
+
+
+{% endblock %}

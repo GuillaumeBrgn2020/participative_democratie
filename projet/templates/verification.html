@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block title %} Projet proposé {% endblock %}
+
+{% block body %}
+<!-- Page de vérification de projet, permet a l'utilisateur de se relire -->
+    <h1> Vous avez proposé le projet suivant :</h1>
+    <h2 id="entete">Titre :</h2> 
+    
+    <p id="texte">
+        {{titre}}
+    </p>
+
+    <br>
+    <br>
+    <h2 id="entete">Description :</h2>
+    
+    <p id="texte">
+        {{description}}
+    </p>
+
+    <br>
+    <br> 
+    <h2 id="entete"> Tags </h3>
+
+    <p id="texte"> 
+        {% for t in tags %}
+            {{t}} ;
+        {% endfor %}
+    </p>
+    <!-- le Form permet de récupérer les valeurs inscrites précédemment, si l'utilisateur décide de modifier son projet. Le form est invisible -->
+    <br>
+    <div class="modif">
+        <form action="/modification" method="POST">
+            <input autocomplete="off" autofocus placeholder="Nom du projet" name="titre" type="hidden" value="{{ titre }}">
+            <input autocomplete="off" autofocus placeholder="Description" name="desc" type="hidden" value="{{ description }}" >
+            <input id="modif" type="submit" value="Modifier">
+        </form>
+    </div>
+
+    <br/><br>
+
+    <div class="bouton">
+        <a href="/sauvegarde"><button class="btn btn-success btn-lg">Valider</button></a><a href="/"><button class="btn btn-danger btn-lg">Annuler</button></a>
+    </div>
+
+    <br> <br>
+
+
+    
+
+
+
+{% endblock %}

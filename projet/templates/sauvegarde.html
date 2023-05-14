@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %} Projet proposé {% endblock %}
+
+{% block body %}
+<!-- page pas accesssible si on entre pas manuellement la route -->
+<!-- La page permet de faire différents tests, on ne la voit jamais normalement -->
+    <h1> Vous avez proposé le projet suivant :</h1>
+    <h2>Titre :</h2> 
+    
+    <p>
+        {{titre}}
+    </p>
+
+    <br>
+    <br>
+    <h2>Description :</h2>
+    
+    <p>
+        {{description}}
+    </p>
+
+    <p> 
+        {{tags[0]}}
+        {{tags[1]}}
+        {{tags[2]}}
+        {{tags[3]}}
+        {{tags[4]}}
+    </p>
+     <a href="/index"> Validation </a>
+
+
+{% endblock %}

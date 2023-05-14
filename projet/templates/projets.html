@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+
+{% block title %} Projets  {% endblock %}
+
+{% block body %}
+
+<h1>
+    Voici tous les projets actuellement proposés
+</h1>
+
+
+<br/><br>
+<form action="/projets" method = "POST">
+    <input autocomplete="off" autofocus placeholder="Tag" type="hidden">
+    <!-- Petit menu déroulant permettant a l'utilisateur de trier les projets selon l'ordre qu'il souhaite -->
+    <select name="type_tri">
+        <option disabled selected value="">--ordonné par--</option>
+        <option value="1">Alphabétique</option>
+        <option value="2">Note la plus haute</option>
+        <option value="3">Note la plus basse</option>
+        <option value="4">Le plus commenté</option>
+        <option value="5">Le moins commenté</option>
+    </select>
+    <input type="submit" value="Valider">
+</form>
+<br/><br>
+<!-- Tableau affichant les projets -->
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Nom du projet</th>
+            <th scope="col">Description</th>
+            <th scope="col">Tags</th>
+            <th scope="col">Date de dépot</th>
+            <th scope="col">Note</th>
+            <th scope="col">Nombre de votes</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for k in N %}                
+        <tr>
+            <td>
+                <a href="projet/{{projet[k][0]}}" title="{{projet[k][1]}}">{{projet[k][1]}}</a>
+            </td>
+            <td class="header">
+                {{projet[k][2]}}
+            </td>
+            <td>
+                {% for t in tags[k]  %}
+                    <li>
+                        {{t}}
+                    </li>
+                {% endfor %}
+            </td>
+            <td>
+                {{projet[k][9]}}
+            </td>
+            <td class="nombre">
+                {{note[k]}}
+            </td>
+            <td class="nombre">
+                {{nmb_vote[k]}}
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

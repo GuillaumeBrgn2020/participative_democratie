@@ -1,0 +1,222 @@
+h1
+{
+    color: rgba(196, 52, 0, 0.945);
+    text-align: center;
+    
+    font-style: italic;
+}
+
+h3
+{
+    margin-left: 5%;
+}
+
+#logo_principal
+{
+    width: 6cm;
+    height: 6cm;
+    display: flex;
+    margin: auto;
+}
+
+#paragraphe
+{
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+#lien
+{
+    margin-left:30%;
+    margin-right: 40%;
+    vertical-align: middle;
+}
+
+#img_lien
+{
+    width: 75px;
+    height: 75px;
+    display: flex;
+    margin-left: 60%;
+    vertical-align: middle;
+}
+
+table
+{
+    border-collapse: collapse;
+    table-layout: auto;
+    width: 100%;
+
+}
+
+td
+{
+    margin: left;
+    text-align: left;
+    border:1px solid black;
+    max-block-size: 10%;
+}
+
+.header{
+    max-width: 400px;
+}
+
+.statut{
+    max-width: 200px;
+}
+
+.nombre{
+    text-align: center;
+    max-width: 20px;
+}
+
+th
+{
+    text-align: center;
+}
+
+#secret{
+    color:white;
+}
+
+a
+{
+    text-align: center;
+    color: black;
+}
+
+button
+{
+    margin: auto;
+}
+
+li
+{
+    margin-left: 1cm;
+}
+
+/* Add a black background color to the top navigation */
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+#annule{
+    margin: auto;
+    width: 4cm;
+    height: 2cm;
+
+}
+
+form{
+    position: relative;
+    width: 100%;
+    text-align: center;
+    vertical-align: auto;
+}
+
+label {
+    width: 50%;
+    position: absolute;
+    left:30%;
+    text-align: left;
+    margin-right: 30px;
+}
+
+input[type=submit] {
+    position: absolute;
+}
+
+.form1{
+    display: table;
+    margin-left: 5%;
+    margin-top: 2%;
+    vertical-align: middle;
+}
+
+#form2{
+    display: table-cell;
+    width: auto;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.champ{
+    height: 30px;
+    width: 100px;
+    text-align: center;
+    vertical-align: middle;
+    margin: 0 auto;
+}
+
+.description{
+    width: 50%;
+    height: 5cm;
+    margin:0 auto;
+    box-sizing: border-box;
+}
+
+.descri{
+    width: 50%;
+}
+
+
+#ERROR{
+    color: red;
+    text-align: center;
+    font-size: 50px;
+    font-style: oblique;
+    margin-top: 15%;
+}
+
+#entete{
+    margin-left: 30%;
+}
+
+#texte{
+    font-size: 20px;
+    text-align: center;
+}
+
+.bouton{
+    margin-left: 10%;
+    text-align: center;
+    vertical-align: bottom;
+}
+
+
+#modif{
+    font-size: 10x;
+}
+
+.table_com
+{
+    border-collapse: collapse;
+    table-layout: auto;
+    margin-left: 10%;
+    max-width: 70%;
+}
+
+

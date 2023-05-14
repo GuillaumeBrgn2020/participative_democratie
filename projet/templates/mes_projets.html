@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+
+{% block title %} Mes projets {% endblock %}
+
+{% block body %}
+
+
+<h1>
+    Voici tous les projets que vous avez proposé lors de vos dernières connexions
+</h1>
+
+<!-- Tableau référençant les projets -->
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">id projet</th>
+            <th scope="col">Nom du projet</th>
+            <th scope="col">Description</th>
+            <th scope="col">Tags</th>
+            <th scope="col">Date de dépot</th>
+            <th scope="col">Note</th>
+            <th scope="col">Nombre de votes</th>
+            <th scope="col">Statut</th>
+            <th id="secret" scope="col">Annulation</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for k in N %}                
+        <tr>
+            <th scope="row">{{projet[k][0]}}</th>
+            <td>
+                <a href="projet/{{projet[k][0]}}" title="{{projet[k][1]}}">{{projet[k][1]}}</a>
+            </td>
+            <td class="header"> 
+                {{projet[k][2]}}
+            </td>
+            <td>
+                {% for t in tags[k]  %}
+                    <li>
+                        {{t}}
+                    </li>
+                {% endfor %}
+            </td>
+            <td>
+                {{projet[k][9]}}
+            </td>
+            <td class="nombre">
+                {{note[k][0]}}
+            </td>
+            <td class="nombre">
+                {{nmb_vote[k]}}
+            </td>
+            <td class="statut">
+                {{statut[k]}}
+            </td>
+            <th>
+                {% if statut[k] == "En cours de traitement" %}
+                    <div class="form1">
+                        <form id="form2" action="/delete" method="post">
+                            <input name="id" type="hidden" value="{{ projet[k][0] }}">
+                            <input class="champ" type="submit" value="supprimer">
+                        </form>
+                    </div>
+                {% endif %}    
+            </th>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<!-- Formulaire pour supprimer le projet en question lorsqu'on clique -->
+{% endblock %}

@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+
+{% block title %} Proposition de projet {% endblock %}
+
+{% block body %} 
+    <h1>Bienvenue sur le projet "{{ nom_projet }}" !</h1>
+
+    <table class="table">
+        <thead>
+            <tr> <!--Création des données à afficher-->
+                <th scope="col">Note</th>
+                <th scope="col">Nom du projet</th>
+                <th scope="col">Description</th>
+                <th scope="col">Tags</th>
+                <th scope="col">Date de dépot</th>
+                <th scope="col">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            <tr> <!--affichage de toutes les données-->
+                <th scope="row">{{ note }}</th>
+                <td>
+                    {{projet[0][1]}}
+                </td>
+                <td class="header">
+                    {{projet[0][2]}}
+                </td>
+                <td>
+                    {% for t in tags %} <!--boucle for pour affiher les tags-->
+                        <li>
+                            {{t}}
+                        </li>
+                    {% endfor %}
+                </td>
+                <td>
+                    {{projet[0][9]}}
+                </td>
+                <td>
+                    {{statut}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    {% if dv == 0 %}
+    <br/><br>
+    <!--création du champ de commentaire-->
+    <form action="/comment" method="POST">
+        <textarea class="commentaire" autocomplete="off" autofocus placeholder="Commentaire" name="com" type="text" maxlength="1000" cols="80" rows="3"></textarea>
+        <input autocomplete="off" autofocus placeholder="id_projet" type="hidden" name="id_projet" value="{{projet[0][0]}}">
+        <br/><br>
+        <input type="submit" value="Valider">
+    </form>
+    <br/><br>
+    {% else %}
+    <h1>Vous avez déjà voté ! Mais vous pouvez retrouver les autres commentaires ici :</h1>
+    {% endif %}
+
+<!--Suppression et affichage de commentaire-->
+    <h3>Commentaires : </h3>
+
+    <table class="table_com">
+        {% for i in commentaires %}
+            <tr>
+                <td class="commentaire">
+                    {{i[0]}}
+                </td>
+                <th>
+                    {% if i[2] == id_connexion %}
+                        <div class="form1">
+                            <form id="form2" action="/meaculpa" method="post">
+                                <input type="hidden" name="id_proj" value="{{projet[0][0]}}">
+                                <input type="hidden" name="id_v" value="{{i[1]}}">
+                                <input name="avis" type="hidden" value="{{i[0]}}">
+                                <input class="champ" type="submit" value="supprimer">
+                            </form>
+                        </div>
+                    {% endif %}
+                </th>
+            </tr>
+            {% endfor %}
+    </table>
+{% endblock %}
